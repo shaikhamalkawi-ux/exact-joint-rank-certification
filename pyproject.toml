@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ejrc"
+version = "0.1.0"
+description = "Exact Joint Rank Certification for positive Einstein aggregation under bounded uncertainty"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "EJRC contributors"}]
+dependencies = ["numpy>=1.24"]
+keywords = [
+  "robust MCDM",
+  "rank certification",
+  "rank stability",
+  "Einstein aggregation",
+  "decision robustness",
+  "sensitivity analysis",
+  "uncertainty sets",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.4", "scipy>=1.10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
