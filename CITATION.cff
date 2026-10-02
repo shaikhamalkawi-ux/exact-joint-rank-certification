@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use EJRC, please cite the associated paper and this software release. Final author metadata and DOI will be added after venue metadata are confirmed."
+title: "EJRC: Exact Joint Rank Certification for Positive Einstein Aggregation"
+version: 0.1.0
+date-released: 2026-10-03
+authors:
+  - name: "EJRC contributors"
+license: MIT
+keywords:
+  - robust MCDM
+  - rank certification
+  - rank stability
+  - Einstein aggregation
+  - decision robustness
+  - uncertainty sets
+repository-code: "https://github.com/shaikhamalkawi-ux/exact-joint-rank-certification"
