@@ -1,0 +1,6 @@
+criterion,published_weight,unit_sum_weight
+C1_transportation_efficiency,0.0749,0.074892510749
+C2_service_reliability,0.0457,0.045695430457
+C3_responsiveness,0.4996,0.499550044996
+C4_cost,0.2548,0.254774522548
+C5_timely_delivery,0.1251,0.125087491251
