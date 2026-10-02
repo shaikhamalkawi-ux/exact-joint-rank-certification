@@ -1,0 +1,8 @@
+domain,object,setting,boundary_parameter,boundary_value,controller_or_note
+PV,complete order,"delta=0, fixed hybrid weights",r_star,0.521244053506046,TOPCon>PERC
+PV,winner HJT,"delta=0, fixed hybrid weights",r_star,0.686066708970332,HJT>TOPCon
+Logistics,complete order,"delta=0, published normalized AHP weights",r_star,0.178772157371379,B>E
+Logistics,winner A,"delta=0, published normalized AHP weights",r_star,0.484702980967533,A>E
+Logistics,"top-3 {A,B,E}","delta=0, published normalized AHP weights",r_star_limiting,1.0,all cross-boundary transformed differences nonnegative
+Logistics,B>E coordination budget,"r=0.20, delta=0",Gamma_star,2.580335731414865,first tie
+PV,TOPCon>PERC coordination budget,"r=0.53, delta=0",Gamma_star,4.843552662671724,first tie
