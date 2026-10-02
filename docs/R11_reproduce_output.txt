@@ -1,0 +1,24 @@
+PV positive Einstein scores
+PERC: 0.817449399904
+TOPCon: 0.862257294933
+HJT: 0.908244180698
+
+PV weight-only first-tie boundaries
+HJT>TOPCon: 0.686066708970
+TOPCon>PERC: 0.521244053506
+HJT>PERC: 0.809552612318
+
+Logistics positive Einstein scores and order
+A: 0.477978988122
+B: 0.429368538309
+E: 0.418505699325
+D: 0.360931779067
+F: 0.335984768346
+C: 0.319335179851
+order: A>B>E>D>F>C
+winner-A r*: 0.484702980968
+top-3 {A,B,E} preserved at r=0.999: True
+Gamma* logistics B>E at r=.20: 2.580335731415
+Gamma* PV TOPCon>PERC at r=.53: 4.843552662672
+
+R11 CORE ASSERTIONS PASS
