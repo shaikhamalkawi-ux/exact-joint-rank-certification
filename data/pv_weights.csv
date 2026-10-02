@@ -1,0 +1,6 @@
+criterion,hybrid_weight,entropy_weight,desert_weight
+Efficiency,0.1732,0.182,0.160
+Thermal resistance,0.2284,0.214,0.250
+Dust tolerance,0.2576,0.236,0.290
+UV resistance,0.2068,0.198,0.220
+Cost effectiveness,0.1340,0.170,0.080
