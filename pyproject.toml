@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ejrc"
-version = "0.1.0"
+version = "0.2.0"
 description = "Exact Joint Rank Certification for positive Einstein aggregation under bounded uncertainty"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "EJRC contributors"}]
-dependencies = ["numpy>=1.24"]
+dependencies = ["numpy>=1.24", "mpmath>=1.3"]
 keywords = [
   "robust MCDM",
   "rank certification",
@@ -19,6 +19,8 @@ keywords = [
   "decision robustness",
   "sensitivity analysis",
   "uncertainty sets",
+  "sampling detectability",
+  "rare-event detection",
 ]
 classifiers = [
   "Programming Language :: Python :: 3",
