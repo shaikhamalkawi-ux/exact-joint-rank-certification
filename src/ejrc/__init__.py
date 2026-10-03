@@ -1,5 +1,14 @@
 """Exact Joint Rank Certification (EJRC)."""
 
+from .detectability import (
+    DetectabilityResult,
+    detection_sample_size,
+    pairwise_sampling_coefficients,
+    reversal_probability_uniform,
+    sampling_detectability,
+    weighted_cube_slice_cdf,
+)
+
 from .core import (
     PairwiseCertificate,
     SetCertificate,
@@ -16,6 +25,12 @@ from .core import (
 )
 
 __all__ = [
+    "DetectabilityResult",
+    "detection_sample_size",
+    "pairwise_sampling_coefficients",
+    "reversal_probability_uniform",
+    "sampling_detectability",
+    "weighted_cube_slice_cdf",
     "PairwiseCertificate",
     "SetCertificate",
     "budgeted_pair_certificate",
@@ -30,4 +45,4 @@ __all__ = [
     "winner_certificate",
 ]
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
