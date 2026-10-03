@@ -41,3 +41,13 @@ The full reproduction script uses the locked seeds documented in the manuscript:
 - Logistics sampling diagnostic: `20261004`
 
 The manuscript's analytical exactness refers to the closed-form certificate. Numerical roots, random audits, and floating-point implementation comparisons are finite-precision checks.
+
+## Sampling detectability
+
+Run:
+
+```bash
+python examples/sampling_detectability.py
+```
+
+The detectability calculations are conditional on fixed scores, fixed reference weights, and the stated iid uniform multiplier protocol. The PV two-billion-draw value is calculated analytically; that many simulations are not run.
