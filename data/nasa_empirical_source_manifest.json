@@ -1,0 +1,18 @@
+{
+  "source": "NASA Prognostics Center of Excellence Battery Data Set",
+  "citation": "B. Saha and K. Goebel (2007), Battery Data Set, NASA Prognostics Data Repository, NASA Ames Research Center",
+  "official_url": "https://phm-datasets.s3.amazonaws.com/NASA/5.+Battery+Data+Set.zip",
+  "archive_sha256": "82302a7db4fc1b34e0b6676326610438d43b816bdf11a69d1d012a464ef2f92e",
+  "B0006": {
+    "archive_member": "5. Battery Data Set/1. BatteryAgingARC-FY08Q4_extracted/B0006.mat",
+    "sha256": "fa818ab4db5db8ab21e910b6dd6c3e20d3761bb9672089e1a4de8f96074616c5",
+    "git_blob_sha1": "8867cf00c30a521848d83b2d31be3e162710e7ad",
+    "discharge_cycles": 168
+  },
+  "B0018": {
+    "archive_member": "5. Battery Data Set/1. BatteryAgingARC-FY08Q4_extracted/B0018.mat",
+    "sha256": "d1e6c923a43ea1c9666b3a90bbb521757a067fd60b4d17dbfaa49c50b179da69",
+    "git_blob_sha1": "13ef3ffda5be655edc2ed08a52073aedf73b548b",
+    "discharge_cycles": 132
+  }
+}
