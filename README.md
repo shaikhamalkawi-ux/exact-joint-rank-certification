@@ -91,6 +91,27 @@ The examples reproduce the locked manuscript values, including:
 - Logistics top-three set `{A,B,E}` remains separated from `{D,F,C}` for every `0 <= r < 1` under the stated weight-only model.
 - Budgeted first-tie thresholds: `Gamma* = 2.580335731415` for logistics `B > E` at `r=0.20`, and `Gamma* = 4.843552662672` for PV `TOPCon > PERC` at `r=0.53`.
 
+## Sampling detectability beyond the EJRC boundary
+
+EJRC 0.2 adds a conditional sampling-detectability layer for the paper's iid uniform weight-multiplier protocol. The deterministic certificate answers whether a reversal exists anywhere in the uncertainty set; the detectability layer asks how much of that set reverses under a specified sampling law.
+
+For a fixed pair and fixed scores, the API computes the exact weighted hypercube-slice reversal probability and the number of independent draws required for a target probability of observing at least one reversal:
+
+```python
+from ejrc import sampling_detectability
+
+out = sampling_detectability(X, weights, leader=1, competitor=0, r=0.53, n_draws=100000)
+print(out.probability)
+print(out.n_for_target_detection)
+```
+
+Locked manuscript examples:
+
+- PV TOPCon>PERC at `r=0.53`: `p_rev = 1.493229890968507e-9`, `N_0.95 = 2,006,209,687`.
+- Logistics B>E at `r=0.20`: `p_rev = 3.327433448238726e-4`, `N_0.95 = 9,002`.
+
+These probabilities are conditional on fixed scores, fixed reference weights, and independent uniform multipliers. They are not physical failure probabilities, fuzzy-membership probabilities, or substitutes for universal EJRC certification.
+
 ## Repository structure
 
 ```text
