@@ -57,9 +57,33 @@ def git_blob_sha1(path: Path) -> str:
     h.update(data)
     return h.hexdigest()
 
+def expand_nested_zips(root: Path, max_depth: int = 6) -> None:
+    """Recursively expand ZIP archives contained in the official bundle."""
+    processed = set()
+    for depth in range(max_depth):
+        pending = [p for p in root.rglob("*.zip") if p.resolve() not in processed]
+        if not pending:
+            return
+        print(f"nested_zip_depth={depth} pending={len(pending)}")
+        for zpath in pending:
+            processed.add(zpath.resolve())
+            dest = zpath.parent / (zpath.stem + "_extracted")
+            dest.mkdir(parents=True, exist_ok=True)
+            try:
+                with zipfile.ZipFile(zpath) as zf:
+                    zf.extractall(dest)
+                print(f"expanded_nested_zip={zpath.relative_to(root)}")
+            except zipfile.BadZipFile:
+                print(f"WARNING bad_nested_zip={zpath.relative_to(root)}")
+    remaining = [p for p in root.rglob("*.zip") if p.resolve() not in processed]
+    if remaining:
+        raise RuntimeError(f"Nested ZIP expansion depth exceeded; remaining={len(remaining)}")
+
 def find_member(root: Path, basename: str) -> Path:
     hits = list(root.rglob(basename))
     if len(hits) != 1:
+        candidates = [str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()]
+        print("archive_file_inventory_sample=" + json.dumps(candidates[:200]))
         raise RuntimeError(f"Expected exactly one {basename}, found {len(hits)}")
     return hits[0]
 
@@ -199,7 +223,10 @@ def main():
         extract = td / "extract"
         extract.mkdir()
         with zipfile.ZipFile(archive) as zf:
+            print(f"top_level_members={len(zf.namelist())}")
+            print("top_level_member_sample=" + json.dumps(zf.namelist()[:100]))
             zf.extractall(extract)
+        expand_nested_zips(extract)
 
         source_manifest = {
             "official_url": NASA_URL,
