@@ -1,0 +1,46 @@
+name: SCLS JR real-trace extraction
+
+on:
+  push:
+    branches:
+      - scls-jr-replay-20261015
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONHASHSEED: "0"
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out extraction branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Extract locked WLAN and UMTS permutations
+        run: |
+          python tools/extract_jr_real_traces.py
+          rm -rf output/raw_source_cache
+
+      - name: Upload compact extraction outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: scls-jr-real-trace-extraction
+          path: |
+            output/jr_real_trace_blocks_r10.csv
+            output/jr_real_trace_blocks_r10.csv.gz
+            output/jr_real_reordered_blocks_r10.csv
+            output/jr_trace_extraction_audit.json
+            output/source_manifest.json
+            output/JR_TRACE_EXTRACTION_AUDIT.md
+            output/EXTRACTION_OUTPUT_SHA256.json
+          if-no-files-found: error
+          retention-days: 1
